@@ -1,0 +1,18 @@
+#
+# Package configuration file for the linenoise project.
+#
+# It defines the following variables
+#
+#  LINENOISE_INCLUDE_DIRS - include directories for linenoise library.
+#
+
+# Compute paths
+get_filename_component(@PACKAGE_PREFIX@_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+# Include folders
+set(@PACKAGE_PREFIX@_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+if(NOT TARGET @PACKAGE_NAME@)
+  include("${@PACKAGE_PREFIX@_CMAKE_DIR}/@PACKAGE_NAME@-targets.cmake")
+endif()
